@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
+import Link from 'next/link';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -31,18 +32,18 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a
+            <Link
               href="/"
               className="text-gray-700 hover:text-zabit-primary transition-colors duration-200 font-medium"
             >
               Platform
-            </a>
-            <a
+            </Link>
+            <Link
               href="/individual"
               className="text-gray-700 hover:text-zabit-primary transition-colors duration-200 font-medium"
             >
               For Individuals
-            </a>
+            </Link>
           </nav>
 
           {/* CTA Button */}
