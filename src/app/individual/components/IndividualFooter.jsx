@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { Instagram, Facebook, Heart } from "lucide-react";
 
 const IndividualFooter = () => {
@@ -10,7 +11,13 @@ const IndividualFooter = () => {
           <div className="flex items-center mb-6 space-x-2">
             {/* Logo */}
             <div className="text-3xl font-bold tracking-widest">
-              AVERTI SYSTEMS
+              <Image
+                src="https://client.avertisystems.com/assets/img/averti21.png"
+                alt="Averti Systems Logo"
+                width={100}
+                height={100}
+                className="w-[80%]"
+              />
             </div>
           </div>
           <div className="flex flex-col space-y-3 text-sm">
