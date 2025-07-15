@@ -100,6 +100,19 @@
 
   .individual body {
     @apply mx-[-10rem]; 
-    background: linear-gradient(to bottom, #f8fafc, #e2e8f0); /* Example different background */
+    background: linear-gradient(to bottom, #f8fafc, #e2e8f0); 
   }
 }
+
+@layer utilities {
+  .clip-slant {
+    clip-path: polygon(0 2cm, 100% 0, 100% 100%, 0% 100%);
+  }
+  .rotate-x-180 {
+    transform: rotate(180deg);
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
+

@@ -44,13 +44,21 @@ export default function AICheckInSection() {
     offset: ["start end", "end start"],
   });
 
-  // Animation values for the small images
-  const x1 = useTransform(scrollYProgress, [0, 1], [-20, -100]);
-  const y1 = useTransform(scrollYProgress, [0, 1], [100, 0]);
-  const x2 = useTransform(scrollYProgress, [0, 1], [100, -200]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [-400, -450]);
-  const x3 = useTransform(scrollYProgress, [0, 1], [-200, -500]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [-150, -300]);
+  // Circular motion path with radius and angle from scroll progress
+  const angle = useTransform(scrollYProgress, [0, 1], [0, 2 * Math.PI]);
+
+  const radius1 = 80;
+  const radius2 = 80;
+  const radius3 = 80;
+
+  const x1 = useTransform(angle, (a) => radius1 * Math.cos(a));
+  const y1 = useTransform(angle, (a) => radius1 * Math.sin(a));
+
+  const x2 = useTransform(angle, (a) => radius2 * Math.cos(a + Math.PI / 2));
+  const y2 = useTransform(angle, (a) => radius2 * Math.sin(a + Math.PI / 2));
+
+  const x3 = useTransform(angle, (a) => radius3 * Math.cos(a + Math.PI));
+  const y3 = useTransform(angle, (a) => radius3 * Math.sin(a + Math.PI));
 
   return (
     <section
@@ -64,9 +72,7 @@ export default function AICheckInSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
-        >
-          {/* <p className="text-gray-600 text-lg font-medium">As featured in</p> */}
-        </motion.div>
+        ></motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -100,34 +106,34 @@ export default function AICheckInSection() {
       <hr />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Image with floating elements */}
+          {/* Left Image with circular motion elements */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative "
           >
-            <div className="relative">
-              {/* Main large image */}
+            <div className="relative ">
+              {/* Main image */}
               <Image
                 src="https://www.zabit.com/_next/image?url=%2Fbusiness-images%2Fwoman.png&w=3840&q=75"
-                alt="Woman using laptop for health coaching"
+                alt="Main Woman Image"
                 width={600}
                 height={600}
-                className="w-full h-auto rounded-2xl"
+                className="w-full h-auto rounded-2xl z-99999"
               />
 
               {/* Small image 1 */}
               <motion.div
                 style={{ x: x1, y: y1 }}
-                className="absolute top-0 left-0 w-32 h-32 rounded-lg shadow-lg overflow-hidden"
+                className="absolute top-1/2 left-1/2 w-32 h-32 rounded-lg shadow-lg overflow-hidden opacity-40 -translate-x-1/2 -translate-y-1/2 ml-[-14rem]"
               >
                 <Image
-                  src="https://www.zabit.com/_next/image?url=%2Fbusiness-images%2Fcouple.png&w=1080&q=75" // Replace with your small image URL
+                  src="https://www.zabit.com/_next/image?url=%2Fbusiness-images%2Fcouple.png&w=1080&q=75"
                   alt="Small image 1"
-                  width={128}
-                  height={128}
+                  width={112}
+                  height={112}
                   className="w-full h-full object-cover"
                 />
               </motion.div>
@@ -135,10 +141,10 @@ export default function AICheckInSection() {
               {/* Small image 2 */}
               <motion.div
                 style={{ x: x2, y: y2 }}
-                className="absolute bottom-0 left-0 w-28 h-28 rounded-lg shadow-lg overflow-hidden"
+                className="absolute top-1/2 left-1/2 w-28 h-28 rounded-lg shadow-lg overflow-hidden opacity-40 -translate-x-1/2 -translate-y-1/2 ml-[-10rem]"
               >
                 <Image
-                  src="https://www.zabit.com/_next/image?url=%2Fbusiness-images%2Fdoctor.png&w=1080&q=75" // Replace with your small image URL
+                  src="https://www.zabit.com/_next/image?url=%2Fbusiness-images%2Fdoctor.png&w=1080&q=75"
                   alt="Small image 2"
                   width={112}
                   height={112}
@@ -149,45 +155,16 @@ export default function AICheckInSection() {
               {/* Small image 3 */}
               <motion.div
                 style={{ x: x3, y: y3 }}
-                className="absolute top-1/2 right-0 w-24 h-24 rounded-lg shadow-lg overflow-hidden"
+                className="absolute top-1/2 left-1/2 w-24 h-24 rounded-lg shadow-lg overflow-hidden opacity-40 -translate-x-1/2 -translate-y-1/2 ml-[-10rem]"
               >
                 <Image
-                  src="https://www.zabit.com/_next/image?url=%2Fbusiness-images%2Fog2.png&w=1080&q=75" // Replace with your small image URL
+                  src="https://www.zabit.com/_next/image?url=%2Fbusiness-images%2Fog2.png&w=1080&q=75"
                   alt="Small image 3"
-                  width={96}
-                  height={96}
+                  width={112}
+                  height={112}
                   className="w-full h-full object-cover"
                 />
               </motion.div>
-
-              {/* Floating elements */}
-              {/* <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="absolute -top-4 -right-4 bg-white p-4 rounded-xl shadow-lg"
-              >
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium text-gray-700">
-                    Online now
-                  </span>
-                </div>
-              </motion.div> */}
-
-              {/* <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="absolute -bottom-4 -left-4 bg-zabit-primary text-white p-4 rounded-xl shadow-lg"
-              >
-                <div className="text-center">
-                  <div className="text-2xl font-bold">49%</div>
-                  <div className="text-sm opacity-90">Improvement</div>
-                </div>
-              </motion.div> */}
             </div>
           </motion.div>
 
@@ -237,34 +214,6 @@ export default function AICheckInSection() {
                 />
               </svg>
             </motion.div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-8 pt-8">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="text-center"
-              >
-                <div className="text-3xl font-bold text-zabit-primary mb-2">
-                  24/7
-                </div>
-                <div className="text-sm text-gray-600">AI Monitoring</div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="text-center"
-              >
-                <div className="text-3xl font-bold text-zabit-primary mb-2">
-                  100%
-                </div>
-                <div className="text-sm text-gray-600">Population Reach</div>
-              </motion.div>
-            </div>
           </motion.div>
         </div>
       </div>

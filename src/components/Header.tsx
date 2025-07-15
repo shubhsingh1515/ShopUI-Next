@@ -31,7 +31,7 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8 ml-[35%]">
             <Link
               href="/"
               className="text-gray-700 hover:text-zabit-primary transition-colors duration-200 font-medium"

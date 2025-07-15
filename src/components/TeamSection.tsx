@@ -22,7 +22,8 @@ const teamMembers = [
 
 export default function TeamSection() {
   return (
-    <section className="  ml-6 mr-6">
+    <section className="  relative overflow-hidden ml-6 mr-6">
+      <div className="absolute top-0 left-0 w-full h-20 bg-gray-200 z-0 clip-slant rotate-180" />
       <div className=" bg-white container mx-auto px-4 sm:px-6 lg:px-8 py-20 rounded-b-3xl">
         {/* Header */}
         <motion.div
