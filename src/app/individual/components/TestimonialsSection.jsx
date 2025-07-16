@@ -37,7 +37,7 @@ const Testimonial = () => {
 
   return (
     <>
-      <div className="mb-8 relative py-10">
+      <div className="mb-4 relative py-10">
         <h1 className="text-5xl lg:text-6xl font-bold text-gray-500 mb-4">
           User <span className="text-purple-800">testimonials</span>
         </h1>

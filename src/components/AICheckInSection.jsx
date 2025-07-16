@@ -127,7 +127,7 @@ export default function AICheckInSection() {
               {/* Small image 1 */}
               <motion.div
                 style={{ x: x1, y: y1 }}
-                className="absolute top-1/2 left-1/2 w-32 h-32 rounded-lg shadow-lg overflow-hidden opacity-40 -translate-x-1/2 -translate-y-1/2 ml-[-14rem]"
+                className="absolute top-1/2 left-1/2 w-32 h-32 rounded-lg shadow-lg overflow-hidden opacity-40 -translate-x-1/2 -translate-y-1/2 ml-[-16rem] mt-[-5rem]"
               >
                 <Image
                   src="https://www.zabit.com/_next/image?url=%2Fbusiness-images%2Fcouple.png&w=1080&q=75"
@@ -141,7 +141,7 @@ export default function AICheckInSection() {
               {/* Small image 2 */}
               <motion.div
                 style={{ x: x2, y: y2 }}
-                className="absolute top-1/2 left-1/2 w-28 h-28 rounded-lg shadow-lg overflow-hidden opacity-40 -translate-x-1/2 -translate-y-1/2 ml-[-10rem]"
+                className="absolute top-1/2 left-1/2 w-28 h-28 rounded-lg shadow-lg overflow-hidden opacity-40 -translate-x-1/2 -translate-y-1/2 ml-[-12rem] mt-[-5rem]"
               >
                 <Image
                   src="https://www.zabit.com/_next/image?url=%2Fbusiness-images%2Fdoctor.png&w=1080&q=75"
@@ -155,13 +155,13 @@ export default function AICheckInSection() {
               {/* Small image 3 */}
               <motion.div
                 style={{ x: x3, y: y3 }}
-                className="absolute top-1/2 left-1/2 w-24 h-24 rounded-lg shadow-lg overflow-hidden opacity-40 -translate-x-1/2 -translate-y-1/2 ml-[-10rem]"
+                className="absolute top-1/2 left-1/2 w-24 h-24 rounded-lg shadow-lg overflow-hidden opacity-40 -translate-x-1/2 -translate-y-1/2 ml-[-14rem] mt-[-5rem] "
               >
                 <Image
                   src="https://www.zabit.com/_next/image?url=%2Fbusiness-images%2Fog2.png&w=1080&q=75"
                   alt="Small image 3"
-                  width={112}
-                  height={112}
+                  width={124}
+                  height={124}
                   className="w-full h-full object-cover"
                 />
               </motion.div>

@@ -10,7 +10,7 @@ import WhyAvertiWorks from "./components/WhyAvertiWorks";
 
 export default function ProductsPage() {
   return (
-    <div className=" bg-gray-50 ml-[-7rem] mr-[-7rem]">
+    <div className=" bg-gray-50 lg:ml-[-6rem] lg:mr-[-6rem] md:mx-0 sm:mx-0">
       <CoachingHome />
       <AvertiStepsPage />
        <GreatHabit />
