@@ -57,12 +57,12 @@ const CoachesSection: React.FC = () => {
           {coaches.map((coach, index) => (
             <div key={coach.name} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
               {/* Coach Image */}
-              <div className="relative aspect-[4/3] bg-gray-200">
-                <Image
+              <div className="relative aspect-[4/3] bg-gray-200 flex items-center justify-center">
+                <img
                   src={coach.image}
                   alt={`${coach.name} - Averti Coach`}
-                  fill
-                  className="h-full w-full"
+                 
+                  className="h-full w-[80%] object-cover" 
 
                 />
                 
