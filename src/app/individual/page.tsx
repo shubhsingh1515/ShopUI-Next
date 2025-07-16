@@ -6,16 +6,19 @@ import Testimo from "./components/TestimonialsSection";
 import AvertiFor from "./components/AvertiFor";
 import IndividualFooter from "./components/IndividualFooter";
 import AvertiStepsPage from "./components/AvertiStepsPage";
+import WhyAvertiWorks from "./components/WhyAvertiWorks";
 
 export default function ProductsPage() {
   return (
     <div className=" bg-gray-50 ml-[-7rem] mr-[-7rem]">
       <CoachingHome />
       <AvertiStepsPage />
+       <GreatHabit />
       <CoachesSection />
+      <WhyAvertiWorks />
       <Testimo />
       <AvertiFor />
-      <GreatHabit />
+     
       <Index />
       <IndividualFooter />
 

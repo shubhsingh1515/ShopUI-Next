@@ -8,11 +8,11 @@ const GreatHabit = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className=" mb-16 relative">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-400 mb-4">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-600 mb-4">
             Choose a{' '}
             <span className="text-purple-600">great habit</span>
           </h1>
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-400">
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-600">
             or bring your own
           </h2>
           

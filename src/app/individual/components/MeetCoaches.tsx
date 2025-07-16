@@ -32,10 +32,10 @@ const CoachesSection: React.FC = () => {
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8">
             {/* Title */}
             <div className="lg:w-1/3">
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-400 leading-tight">
+              <h1 className="text-5xl lg:text-6xl font-bold text-gray-600 leading-tight">
                 Meet our
               </h1>
-              <h1 className="text-5xl lg:text-6xl font-bold text-purple-600 leading-tight">
+              <h1 className="text-5xl lg:text-6xl font-bold text-purple-700 leading-tight">
                 Coaches
               </h1>
             </div>
@@ -67,13 +67,13 @@ const CoachesSection: React.FC = () => {
                 />
                 
                 {/* Zabit Logo (only on middle card) */}
-                {index === 1 && (
+                {/* {index === 1 && (
                   <div className="absolute top-4 left-4">
                     <div className="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center">
                       <div className="w-5 h-5 bg-white rounded-md"></div>
                     </div>
                   </div>
-                )}
+                )} */}
               </div>
 
               {/* Coach Info */}

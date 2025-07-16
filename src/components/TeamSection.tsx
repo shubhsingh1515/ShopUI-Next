@@ -33,7 +33,7 @@ export default function TeamSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl lg:text-4xl font-bold text-zabit-dark mb-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-zabit-dark mb-6 mt-10">
             Built by Experts, Backed by Science
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
