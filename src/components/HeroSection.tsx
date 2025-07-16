@@ -57,7 +57,7 @@ export default function HeroSection() {
         </p>
       </div>
 
-      <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] order-1 md:order-2">
+      <div className="relative w-[280px] h-[280px] md:w-[350px] md:h-[350px] order-1 md:order-2">
         <div className="absolute inset-0 border-2 border-dashed border-gray-300 rounded-full" />
 
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">

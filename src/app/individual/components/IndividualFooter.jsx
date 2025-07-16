@@ -12,9 +12,9 @@ const IndividualFooter = () => {
             <Image
               src="https://client.avertisystems.com/assets/img/averti21.png"
               alt="Averti Systems Logo"
-              width={100}
-              height={100}
-              className="w-[80px] h-auto"
+              width={200}
+              height={200}
+              className="w-[150px] h-auto"
             />
           </div>
           <div className="flex flex-col space-y-2 text-sm">

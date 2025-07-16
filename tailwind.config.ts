@@ -12,6 +12,19 @@ export default {
     //      animation: {
     //     'spin-slow': 'spin 12s linear infinite',
     //   },
+        backgroundImage: {
+        'gradient-fill': 'linear-gradient(to right, #9333ea 0%, #9333ea 50%, transparent 50%, transparent 100%)',
+      },
+      animation: {
+        'bg-fill': 'fillBg 3s ease-in-out infinite',
+      },
+      keyframes: {
+        fillBg: {
+          '0%': { backgroundSize: '0% 100%' },
+          '50%': { backgroundSize: '100% 100%' },
+          '100%': { backgroundSize: '0% 100%' },
+        },
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',

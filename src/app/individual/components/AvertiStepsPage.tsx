@@ -2,14 +2,15 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 
+
 const ZabitStepsPage = () => {
   const [activeStep, setActiveStep] = useState(1);
   const [isVisible, setIsVisible] = useState(false);
   const [isScrollLocked, setIsScrollLocked] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   
-  const containerRef = useRef(null);
-  const mainRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const mainRef = useRef<HTMLDivElement>(null);
   const scrollPositionRef = useRef(0);
   const isScrollingRef = useRef(false);
   const lastScrollTimeRef = useRef(0);
@@ -63,75 +64,74 @@ const ZabitStepsPage = () => {
         setIsScrollLocked(false);
       }
     };
+    
 
-    const handleWheel = (e) => {
-      if (!isScrollLocked || isScrollingRef.current) return;
-      
-      const now = Date.now();
-      if (now - lastScrollTimeRef.current < 16) return; // Throttle to ~60fps
-      lastScrollTimeRef.current = now;
-      
-      e.preventDefault();
-      
-      isScrollingRef.current = true;
-      
-      const delta = e.deltaY;
-      const container = containerRef.current;
-      const containerRect = container.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      const currentScroll = window.scrollY;
-      
-      // Calculate scroll bounds
-      const containerTop = scrollPositionRef.current;
-      const containerBottom = containerTop + containerRect.height - windowHeight;
-      
-      // Calculate new scroll position
-      const scrollSensitivity = 1.2;
-      const scrollAmount = delta * scrollSensitivity;
-      let newScrollY = currentScroll + scrollAmount;
-      
-      // Check bounds and handle transitions
-      if (newScrollY < containerTop) {
-        // Scrolling up beyond component start
-        if (delta < 0) {
-          // Allow scrolling up to previous content
-          setIsScrollLocked(false);
-          window.scrollTo({
-            top: containerTop - 100, // Scroll a bit above to ensure clean transition
-            behavior: 'smooth'
-          });
-        } else {
-          newScrollY = containerTop;
-        }
-      } else if (newScrollY > containerBottom) {
-        // Scrolling down beyond component end
-        if (delta > 0) {
-          // Allow scrolling down to next content
-          setIsScrollLocked(false);
-          window.scrollTo({
-            top: containerBottom + 100, // Scroll a bit below to ensure clean transition
-            behavior: 'smooth'
-          });
-        } else {
-          newScrollY = containerBottom;
-        }
-      }
-      
-      // Only scroll if we're staying within bounds
-      if (newScrollY >= containerTop && newScrollY <= containerBottom) {
-        window.scrollTo({
-          top: newScrollY,
-          behavior: 'auto'
-        });
-      }
-      
-      setTimeout(() => {
-        isScrollingRef.current = false;
-      }, 50);
-    };
+   const handleWheel = (e: WheelEvent) => {
+  if (!isScrollLocked || isScrollingRef.current || !containerRef.current) return;
+  
+  const now = Date.now();
+  if (now - lastScrollTimeRef.current < 16) return; // Throttle to ~60fps
+  lastScrollTimeRef.current = now;
+  
+  e.preventDefault();
+  
+  isScrollingRef.current = true;
+  
+  const delta = e.deltaY;
+  const container = containerRef.current;
+  const containerRect = container.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+  const currentScroll = window.scrollY;
+  
+  // Calculate scroll bounds
+  const containerTop = scrollPositionRef.current;
+  const containerBottom = containerTop + containerRect.height - windowHeight;
+  
+  // Calculate new scroll position with consistent sensitivity
+  const scrollSensitivity = 1.5; // Increased slightly for better feel
+  const scrollAmount = delta * scrollSensitivity;
+  let newScrollY = currentScroll + scrollAmount;
+  
+  // Apply momentum to reverse scrolling to match forward scrolling
+  const momentumFactor = delta < 0 ? 1.2 : 1; // Boost reverse scrolling
+  newScrollY = currentScroll + (delta * scrollSensitivity * momentumFactor);
+  
+  // Check bounds and handle transitions
+  if (newScrollY < containerTop) {
+    if (delta < 0) {
+      setIsScrollLocked(false);
+      window.scrollTo({
+        top: containerTop - 100,
+        behavior: 'smooth'
+      });
+    } else {
+      newScrollY = containerTop;
+    }
+  } else if (newScrollY > containerBottom) {
+    if (delta > 0) {
+      setIsScrollLocked(false);
+      window.scrollTo({
+        top: containerBottom + 100,
+        behavior: 'smooth'
+      });
+    } else {
+      newScrollY = containerBottom;
+    }
+  }
+  
+  // Apply the scroll
+  window.scrollTo({
+    top: newScrollY,
+    behavior: 'auto'
+  });
+  
+  setTimeout(() => {
+    isScrollingRef.current = false;
+  }, 50);
+};
 
-    const handleKeyDown = (e) => {
-      if (!isScrollLocked) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isScrollLocked || !containerRef.current) return;
       
       if (e.key === 'ArrowDown' || e.key === 'PageDown') {
         e.preventDefault();
@@ -160,16 +160,16 @@ const ZabitStepsPage = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('wheel', handleWheel, { passive: false });
-    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('wheel', handleWheel as EventListener, { passive: false });
+    window.addEventListener('keydown', handleKeyDown as EventListener);
     
     // Initial check
     handleScroll();
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('wheel', handleWheel);
-      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('wheel', handleWheel as EventListener);
+      window.removeEventListener('keydown', handleKeyDown as EventListener);
     };
   }, [isScrollLocked]);
 
@@ -189,7 +189,7 @@ const ZabitStepsPage = () => {
               <img
                 src="https://www.zabit.com/_next/image?url=%2Fimages%2Fcoach.png&w=1920&q=75"
                 alt="Professional Coach"
-                className=" object-cover "
+                className="object-cover"
               />
               
               <div className="absolute -top-4 right-2 bg-white rounded-2xl px-4 py-3 shadow-lg transform rotate-12 animate-bounce">
@@ -341,21 +341,9 @@ const ZabitStepsPage = () => {
 
   return (
     <div>
-      {/* Content before component
-      <div className="bg-gray-100 py-20">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Content Before Steps</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            This is some content that appears before the interactive steps component. 
-            Scroll down to see the steps component in action.
-          </p>
-        </div>
-      </div> */}
-      
-      {/* Main interactive component */}
       <div 
         ref={containerRef}
-        className="min-h-[300vh]  relative mt-10"
+        className="min-h-[350vh] relative mt-10"
       >
         <div 
           ref={mainRef}
@@ -366,10 +354,10 @@ const ZabitStepsPage = () => {
               {/* Left Side - Steps */}
               <div className="space-y-8">
                 <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                  <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-gray-600">
+                  <h1 className="text-4xl lg:text-6xl font-bold leading-tight text-gray-600">
                     The <span className="text-purple-600">best version of</span>{' '}
                   </h1>
-                  <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-gray-600 mt-4">
+                  <h1 className="text-4xl lg:text-6xl font-bold leading-tight text-gray-600 mt-4">
                     you in <span className="relative inline-block">
                       <span className="bg-white px-4 rounded-full text-purple-600 border-4 border-purple-200">3 easy steps</span>
                     </span>
@@ -378,7 +366,7 @@ const ZabitStepsPage = () => {
 
                 {/* Step 1 */}
                 <div className={`transform transition-all duration-700 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                  <div className={`rounded-3xl p-8 transition-all duration-500 transform hover:scale-105 ${
+                  <div className={`rounded-3xl p-4 transition-all duration-500 transform hover:scale-105 ${
                     activeStep === 1 
                       ? 'bg-purple-600 text-white shadow-2xl' 
                       : 'bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-white/90 shadow-lg'
@@ -401,7 +389,7 @@ const ZabitStepsPage = () => {
 
                 {/* Step 2 */}
                 <div className={`transform transition-all duration-700 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                  <div className={`rounded-3xl p-8 transition-all duration-500 transform hover:scale-105 ${
+                  <div className={`rounded-3xl p-4 transition-all duration-500 transform hover:scale-105 ${
                     activeStep === 2 
                       ? 'bg-purple-600 text-white shadow-2xl' 
                       : 'bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-white/90 shadow-lg'
@@ -424,7 +412,7 @@ const ZabitStepsPage = () => {
 
                 {/* Step 3 */}
                 <div className={`transform transition-all duration-700 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                  <div className={`rounded-3xl p-8 transition-all duration-500 transform hover:scale-105 ${
+                  <div className={`rounded-3xl p-4 transition-all duration-500 transform hover:scale-105 ${
                     activeStep === 3 
                       ? 'bg-purple-600 text-white shadow-2xl' 
                       : 'bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-white/90 shadow-lg'
@@ -459,44 +447,9 @@ const ZabitStepsPage = () => {
                 </div>
               </div>
             </div>
-
-            {/* Progress indicator */}
-            {/* <div className="fixed right-8 top-1/2 transform -translate-y-1/2 space-y-2 z-50">
-              {[1, 2, 3].map((step) => (
-                <div
-                  key={step}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    activeStep === step ? 'bg-purple-600 scale-125' : 'bg-gray-300'
-                  }`}
-                />
-              ))}
-            </div> */}
           </div>
         </div>
-
-        {/* CTA Section - This will be visible after scrolling through all steps */}
-        {/* <div className="bg-white py-16">
-          <div className="container mx-auto px-6 text-center">
-            <button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center space-x-3 mx-auto transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-              <span>Start your free Zabit trial</span>
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-        </div> */}
       </div>
-
-      {/* Content after component
-      <div className="bg-gray-100 py-20">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Content After Steps</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            This is some content that appears after the interactive steps component. 
-            You should be able to scroll back up to see the steps component again.
-          </p>
-        </div>
-      </div> */}
 
       <style jsx>{`
         @keyframes fade-in {
