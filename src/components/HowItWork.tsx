@@ -40,7 +40,7 @@ const steps = [
     number: 2,
     title: "Create a Plan",
     description:
-      "Zabit imports a habit goal or home care plan using AI and breaks it down into a smart schedule for reminders and support.",
+      "Averti imports a habit goal or home care plan using AI and breaks it down into a smart schedule for reminders and support.",
     features: [
       "AI parses clinical care plans automatically",
       "Schedules are customized for each patient",
@@ -59,7 +59,7 @@ const steps = [
     number: 3,
     title: "Coordinate Everyday Adherence",
     description:
-      "Zabit uses ongoing multi-channel communication to help each client adhere to their care plan, leveraging the Support Circle to provide nudges, praise, and accountability.",
+      "Averti uses ongoing multi-channel communication to help each client adhere to their care plan, leveraging the Support Circle to provide nudges, praise, and accountability.",
     features: [
       "Coordinates communications among all team members",
       "Builds accountability through social reinforcement",
@@ -127,48 +127,47 @@ export default function HowItWorks() {
                     index % 2 === 1 ? "lg:col-start-2" : ""
                   }`}
                 >
-                 <div className="space-y-6">
-  <div className="flex items-center gap-4">
-    {/* SVG container wrapping number */}
-    <div className="relative w-12 h-12 flex items-center justify-center">
-      {/* The SVG behind the number */}
-      <svg
-        className="absolute inset-0 w-full h-full overflow-visible text-teal-500"
-        viewBox="0 0 48 48"
-        preserveAspectRatio="none"
-        style={{ transform: "rotate(-15deg)", opacity: 1 }}
-      >
-        <path
-          d="M24,5 C35,5 43,13 43,24 C43,35 35,43 24,43 C13,43 5,35 5,24 C5,13 13,5 21,3 C27,2 30,1 32,3"
-          stroke="currentColor"
-          strokeWidth="3"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          pathLength="1"
-          strokeDashoffset="0px"
-          strokeDasharray="1px 1px"
-        ></path>
-      </svg>
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-4">
+                      {/* SVG container wrapping number */}
+                      <div className="relative w-12 h-12 flex items-center justify-center">
+                        {/* The SVG behind the number */}
+                        <svg
+                          className="absolute inset-0 w-full h-full overflow-visible text-teal-500"
+                          viewBox="0 0 48 48"
+                          preserveAspectRatio="none"
+                          style={{ transform: "rotate(-15deg)", opacity: 1 }}
+                        >
+                          <path
+                            d="M24,5 C35,5 43,13 43,24 C43,35 35,43 24,43 C13,43 5,35 5,24 C5,13 13,5 21,3 C27,2 30,1 32,3"
+                            stroke="currentColor"
+                            strokeWidth="3"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            pathLength="1"
+                            strokeDashoffset="0px"
+                            strokeDasharray="1px 1px"
+                          ></path>
+                        </svg>
 
-      {/* The number displayed above the SVG */}
-      <span className="relative z-10 text-xl font-bold text-zabit-dark">
-        {step.number}
-      </span>
-    </div>
+                        {/* The number displayed above the SVG */}
+                        <span className="relative z-10 text-xl font-bold text-zabit-dark">
+                          {step.number}
+                        </span>
+                      </div>
 
-    {/* Step title */}
-    <h3 className="text-3xl lg:text-4xl font-bold text-zabit-dark">
-      {step.title}
-    </h3>
-  </div>
+                      {/* Step title */}
+                      <h3 className="text-3xl lg:text-4xl font-bold text-zabit-dark">
+                        {step.title}
+                      </h3>
+                    </div>
 
-  {/* Step description */}
-  <p className="text-lg text-gray-700 leading-relaxed">
-    {step.description}
-  </p>
-</div>
-
+                    {/* Step description */}
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
 
                   <div className="space-y-4">
                     {step.features.map((feature, featureIndex) => (

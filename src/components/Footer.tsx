@@ -1,7 +1,8 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import { motion } from 'framer-motion'
+import Image from "next/image";
+import { motion } from "framer-motion";
+import logo from "../image/logo-dark.png";
 
 export default function Footer() {
   return (
@@ -18,7 +19,7 @@ export default function Footer() {
           >
             <div className="flex items-center gap-2">
               <Image
-                src="https://client.avertisystems.com/assets/img/averti21.png"
+                src={logo}
                 alt="Averti Systems Logo"
                 width={100}
                 height={100}
@@ -31,7 +32,7 @@ export default function Footer() {
           </motion.div>
 
           {/* Contact Info */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -41,7 +42,7 @@ export default function Footer() {
             <p className="text-sm text-gray-600">57 Post Street, Suite 901</p>
             <p className="text-sm text-gray-600">San Francisco,</p>
             <p className="text-sm text-gray-600">CA 94104</p>
-          </motion.div>
+          </motion.div> */}
 
           {/* Legal Links */}
           <motion.div
@@ -75,10 +76,11 @@ export default function Footer() {
           className="mt-8 pt-6 border-t border-gray-200 text-center"
         >
           <p className="text-xs text-gray-500 px-2 sm:px-0">
-            Make behavior change a team sport with collaborative care plan adherence.
+            Make behavior change a team sport with collaborative care plan
+            adherence.
           </p>
         </motion.div>
       </div>
     </footer>
-  )
+  );
 }

@@ -1,12 +1,13 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
+import logo from "../../../image/logo-dark.png";
 
 const ZabitLandingPage = () => {
   return (
     <div className=" bg-gradient-to-br from-orange-400 via-orange-600 to-red-800 relative overflow-hidden rounded-[2rem] mt-6 ">
       {/* Background geometric shape */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-orange-300 to-transparent opacity-30 transform rotate-12 origin-top-right"></div>
-      
+
       <div className="container mx-auto px-6 py-8 relative z-10">
         {/* Header */}
         <div className="flex justify-between items-center mb-16">
@@ -14,15 +15,15 @@ const ZabitLandingPage = () => {
             {/* <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
               <div className="w-4 h-4 bg-orange-500 rounded-full"></div>
             </div> */}
-            
+
             <div className="text-white font-bold text-xl">
               <Image
-                                            src="https://client.avertisystems.com/assets/img/averti21.png"
-                                            alt="Averti Systems Logo"
-                                            width={100}
-                                            height={100}
-                                            className="w-[80%]"
-                                          />
+                src={logo}
+                alt="Averti Systems Logo"
+                width={100}
+                height={100}
+                className="w-[60%]"
+              />
             </div>
           </div>
         </div>
@@ -30,50 +31,81 @@ const ZabitLandingPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
           {/* Left Content */}
           <div className="space-y-8">
-           <div className="space-y-6">
-  <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">
-    A personal coach
-  </h1>
-  <div className="relative">
-    <span className="text-5xl lg:text-6xl font-bold text-white">for </span>
-    <span
-      className="text-4xl lg:text-5xl font-bold text-white px-4 py-2 rounded-full inline-block
+            <div className="space-y-6">
+              <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">
+                A personal coach
+              </h1>
+              <div className="relative">
+                <span className="text-5xl lg:text-6xl font-bold text-white">
+                  for{" "}
+                </span>
+                <span
+                  className="text-4xl lg:text-5xl font-bold text-white px-4 py-2 rounded-full inline-block
                  bg-gradient-to-r from-purple-600 to-purple-600 bg-[length:0%_100%] bg-no-repeat
                  animate-bg-fill transition-all"
-    >
-      everyday habits.
-    </span>
-  </div>
-</div>
-
+                >
+                  everyday habits.
+                </span>
+              </div>
+            </div>
 
             {/* Habit badges */}
             <div className="flex flex-wrap gap-3">
               <div className="bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 flex items-center space-x-2">
                 <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center">
-                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  <svg
+                    className="w-3 h-3 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </div>
-                <span className="text-purple-600 font-medium">Exercise more often.</span>
+                <span className="text-purple-600 font-medium">
+                  Exercise more often.
+                </span>
               </div>
-              
+
               <div className="bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 flex items-center space-x-2">
                 <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center">
-                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  <svg
+                    className="w-3 h-3 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </div>
-                <span className="text-purple-600 font-medium">Cut down on screen time.</span>
+                <span className="text-purple-600 font-medium">
+                  Cut down on screen time.
+                </span>
               </div>
-              
+
               <div className="bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 flex items-center space-x-2">
                 <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center">
-                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  <svg
+                    className="w-3 h-3 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </div>
-                <span className="text-purple-600 font-medium">Go to sleep earlier.</span>
+                <span className="text-purple-600 font-medium">
+                  Go to sleep earlier.
+                </span>
               </div>
             </div>
 
@@ -87,15 +119,31 @@ const ZabitLandingPage = () => {
                 />
                 <button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center space-x-2 transition-colors">
                   <span>Sign Up</span>
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </button>
               </div>
-              
+
               <p className="text-white text-sm max-w-md">
-                By pressing "Sign Up", I understand that I may receive text messages from Averti Systems. Message and data rates may apply. 
-                <span className="underline cursor-pointer">Terms of Use</span> and <span className="underline cursor-pointer">Privacy Policy</span>.
+                By pressing "Sign Up", I understand that I may receive text
+                messages from Averti Systems. Message and data rates may apply.
+                <span className="underline cursor-pointer">
+                  Terms of Use
+                </span>{" "}
+                and{" "}
+                <span className="underline cursor-pointer">Privacy Policy</span>
+                .
               </p>
             </div>
           </div>
@@ -113,13 +161,16 @@ const ZabitLandingPage = () => {
 
             {/* Floating message */}
             <div className="absolute top-12 right-10 bg-orange-500 rounded-2xl p-6 shadow-lg max-w-xs z-20">
-                <div
-                  className={`absolute top-10 -left-4 w-10 h-6 bg-orange-500 transform rotate-45`}
-                ></div>
+              <div
+                className={`absolute top-10 -left-4 w-10 h-6 bg-orange-500 transform rotate-45`}
+              ></div>
               <div className="space-y-2">
                 <h3 className="font-bold text-white text-lg">Hi!</h3>
                 <p className="text-white text-md leading-relaxed">
-                  I am an <span className="font-semibold">actual, real, human</span> coach to help you stay on track and hold you accountable to your habit goals.
+                  I am an{" "}
+                  <span className="font-semibold">actual, real, human</span>{" "}
+                  coach to help you stay on track and hold you accountable to
+                  your habit goals.
                 </p>
               </div>
             </div>

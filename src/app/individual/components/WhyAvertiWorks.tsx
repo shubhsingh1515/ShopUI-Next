@@ -4,7 +4,7 @@ const WhyAvertiWorks = () => {
   return (
     <>
     <h1 className="text-6xl font-bold text-gray-600 mb-10">
-            Why <span className="text-purple-700"> Zabit works</span>
+            Why <span className="text-purple-700"> Averti works</span>
             <span className="inline-block ml-4 text-purple-500 dark:text-purple-300">
           
             <svg
@@ -67,7 +67,7 @@ const WhyAvertiWorks = () => {
               <blockquote className="text-lg leading-relaxed">
                 "From my 50 years of experience as a psychiatrist, I know that{' '}
                 <span className="font-semibold">accountability to another person</span>, whether it's through coaching or a 12-step program, is{' '}
-                <span className="font-semibold">essential for supporting difficult behavior change</span>. Zabit's affordable habit coaching service makes that possible for everyday habits in our lives."
+                <span className="font-semibold">essential for supporting difficult behavior change</span>. Avarti's affordable habit coaching service makes that possible for everyday habits in our lives."
               </blockquote>
               
               {/* Quote Mark */}

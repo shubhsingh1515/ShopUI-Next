@@ -1,24 +1,24 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import { motion } from 'framer-motion'
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 const teamMembers = [
   {
-    name: "Roddy Lindsay",
+    name: "Dimetrius Felder",
     role: "Founder and CEO",
-    credentials: "Stanford University, Meta",
-    image: "https://ext.same-assets.com/3529801980/1862052449.jpeg",
-    color: "text-zabit-primary"
+    credentials: "Averti Systems",
+    image: "",
+    color: "text-zabit-primary",
   },
-  {
-    name: "Dr. Mark Gold",
-    role: "Advisor",
-    credentials: "Former Chairman of Psychiatry, University of Florida College of Medicine",
-    image: "https://ext.same-assets.com/3529801980/907421943.png",
-    color: "text-zabit-primary"
-  }
-]
+  // {
+  //   name: "Dr. Mark Gold",
+  //   role: "Advisor",
+  //   credentials: "Former Chairman of Psychiatry, University of Florida College of Medicine",
+  //   image: "https://ext.same-assets.com/3529801980/907421943.png",
+  //   color: "text-zabit-primary"
+  // }
+];
 
 export default function TeamSection() {
   return (
@@ -37,12 +37,13 @@ export default function TeamSection() {
             Built by Experts, Backed by Science
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Founded by leading AI and patient engagement experts, in partnership with leading behavior change scientists.
+            Founded by leading AI and patient engagement experts, in partnership
+            with leading behavior change scientists.
           </p>
         </motion.div>
 
         {/* Team Grid */}
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-1 gap-12 lg:gap-16 max-w-4xl mx-auto">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}
@@ -87,7 +88,7 @@ export default function TeamSection() {
                 </div>
 
                 {/* Social Links (placeholder) */}
-                <motion.div
+                {/* <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
@@ -110,29 +111,26 @@ export default function TeamSection() {
                       <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
                     </svg>
                   </a>
-                </motion.div>
+                </motion.div> */}
               </div>
             </motion.div>
           ))}
         </div>
-
-       
-      
       </div>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center m-16 "
-        >
-          <h3 className="text-2xl lg:text-3xl font-bold text-zabit-dark mb-6">
-            Interested in learning more?
-          </h3>
-          <button className="bg-zabit-dark text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
-            Book a demo
-          </button>
-        </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+        className="text-center m-16 "
+      >
+        <h3 className="text-2xl lg:text-3xl font-bold text-zabit-dark mb-6">
+          Interested in learning more?
+        </h3>
+        <button className="bg-zabit-dark text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+          Book a demo
+        </button>
+      </motion.div>
     </section>
-  )
+  );
 }
