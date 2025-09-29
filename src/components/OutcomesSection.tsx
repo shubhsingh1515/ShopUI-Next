@@ -49,6 +49,16 @@ const assistants: Assistant[] = [
     color: "from-red-500 to-pink-600",
     assistantId: "3a59dfa1-7e9f-44e3-a4f1-62dc00e6dfef",
   },
+  {
+    id: "danger",
+    title: "Danger Assistance",
+    description:
+      "Emergency help and immediate response in case of danger or hazardous situations",
+    phone: "+18001234567",
+    icon: "🚨",
+    color: "from-orange-300 to-red-600",
+    assistantId: "060c1569-8dd6-4f33-92a4-5aae61e887a4",
+  },
 ];
 
 export default function HelplineAssistant(): JSX.Element {
@@ -321,9 +331,12 @@ export default function HelplineAssistant(): JSX.Element {
               <p className="text-xl text-gray-700 leading-relaxed">
                 Our AI-powered helpline assistants provide{" "}
                 <span className="font-semibold border-b-2 border-blue-500">
-                  24/7 immediate support
+                  24/7 immediate support.
                 </span>{" "}
-                for health, financial, and suicide situations.
+                You don’t have to go through this alone. If you are struggling
+                today, need support with your mental health, or have experienced
+                a traumatic event, consider contacting a helpline. It’s free,
+                anonymous and confidential.
               </p>
             </div>
 
@@ -453,13 +466,16 @@ export default function HelplineAssistant(): JSX.Element {
                       disabled={deviceStatus === "error" || isInitializing}
                       className={`w-full p-6 rounded-2xl bg-gradient-to-r ${
                         assistant.color
-                      } text-white hover:shadow-2xl transition-all duration-300 hover:scale-105 transform group ${
+                      } text-white hover:shadow-2xl transition-all duration-300 hover:scale-105 transform group relative overflow-hidden ${
                         deviceStatus === "error" || isInitializing
                           ? "opacity-50 cursor-not-allowed"
                           : ""
                       }`}
                     >
-                      <div className="flex items-center gap-4">
+                      {/* Pulsing background effect */}
+                      <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+
+                      <div className="flex items-center gap-4 relative z-10">
                         <div className="text-4xl">{assistant.icon}</div>
                         <div className="text-left flex-1">
                           <h4 className="text-xl font-bold mb-1">
@@ -469,8 +485,15 @@ export default function HelplineAssistant(): JSX.Element {
                             {assistant.description}
                           </p>
                         </div>
-                        <div className="text-2xl group-hover:translate-x-1 transition-transform duration-300">
-                          →
+
+                        {/* Blinking Call Now Button */}
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-white rounded-full opacity-60 animate-ping"></div>
+                          <div className="relative bg-white text-gray-900 font-bold px-3 py-2 rounded-full shadow-lg flex items-center gap-2 group-hover:scale-110 transition-transform duration-300">
+                            <span className="text-sm whitespace-nowrap">
+                              📞 CALL NOW
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </button>

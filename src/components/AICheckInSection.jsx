@@ -178,17 +178,33 @@ export default function AICheckInSection() {
           >
             <div className="space-y-6">
               <h2 className="text-4xl lg:text-5xl font-bold text-zabit-dark leading-tight">
-                AI check-ins, human accountability
+                Support when you need it most
               </h2>
 
               <p className="text-xl text-gray-700 leading-relaxed">
-                By supplementing human teams with AI agents for daily adherence
-                checkins and support, Averti Systems increases adherence by{" "}
+                Our platform combines{" "}
                 <span className="font-bold text-zabit-primary">
-                  49 percentage points
+                  AI assistance
                 </span>{" "}
-                across a variety of behaviors, including fitness, diet,
-                substance cessation, and home care plans.
+                and{" "}
+                <span className="font-bold text-zabit-primary">human care</span>{" "}
+                to provide trusted guidance in{" "}
+                <span className="font-semibold border-b-2 border-zabit-primary">
+                  health
+                </span>
+                ,{" "}
+                <span className="font-semibold border-b-2 border-zabit-primary">
+                  finance
+                </span>
+                ,{" "}
+                <span className="font-semibold border-b-2 border-zabit-primary">
+                  suicide prevention
+                </span>
+                , and{" "}
+                <span className="font-semibold border-b-2 border-zabit-primary">
+                  danger situations
+                </span>
+                . Get reliable support and immediate help, anytime you need it.
               </p>
             </div>
 
@@ -199,7 +215,7 @@ export default function AICheckInSection() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="inline-flex items-center gap-2 text-zabit-primary font-medium hover:gap-4 transition-all duration-300 cursor-pointer"
             >
-              <span>Try it out as a user</span>
+              <span>Get started now</span>
               <svg
                 className="w-5 h-5"
                 fill="none"

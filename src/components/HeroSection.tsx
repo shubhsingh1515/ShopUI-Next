@@ -1,59 +1,73 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const avatars = [
   {
-    id: 'ai-agent',
-    label: 'AI Agent',
-    icon: 'https://ext.same-assets.com/3529801980/1182156735.svg',
-    message: 'Needs a nudge',
-    bgColor: 'bg-purple-400'
+    id: "ai-agent",
+    label: "AI Agent",
+    icon: "https://ext.same-assets.com/3529801980/1182156735.svg",
+    message: "Needs a nudge",
+    bgColor: "bg-purple-400",
   },
   {
-    id: 'family',
-    label: 'Family',
-    image: 'https://www.zabit.com/_next/image?url=%2Fbusiness-images%2Ff1.png&w=256&q=75',
-    message: 'Sent a reminder',
-    bgColor: 'bg-blue-500'
+    id: "family",
+    label: "Family",
+    image:
+      "https://www.zabit.com/_next/image?url=%2Fbusiness-images%2Ff1.png&w=256&q=75",
+    message: "Sent a reminder",
+    bgColor: "bg-blue-500",
   },
   {
-    id: 'practitioner',
-    label: 'Practitioner',
-    image: 'https://ext.same-assets.com/3529801980/2499113889.png',
-    message: 'Checked in with patient',
-    bgColor: 'bg-green-300'
-  }
-]
+    id: "practitioner",
+    label: "Practitioner",
+    image: "https://ext.same-assets.com/3529801980/2499113889.png",
+    message: "Checked in with patient",
+    bgColor: "bg-green-300",
+  },
+];
 
-const radius = 200
-const avatarAngles = [30, 150, 270]
+const radius = 200;
+const avatarAngles = [30, 150, 270];
 
 export default function HeroSection() {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex(prev => (prev + 1) % avatars.length)
-    }, 3000) // pauses for 3 seconds on each avatar
+      setCurrentIndex((prev) => (prev + 1) % avatars.length);
+    }, 3000); // pauses for 3 seconds on each avatar
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="bg-gray-200 md:h-[600px] flex flex-col md:flex-row items-center justify-between overflow-hidden rounded-[2rem] px-6 md:px-12 py-12 md:py-0">
       <div className="max-w-2xl p-5 order-2 md:order-1 mt-8 md:mt-0">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-zabit-dark leading-tight mb-6">
-          Make behavior change a{' '}
-          <span className="text-zabit-primary">team sport</span>.
+          Free assistance,{" "}
+          <span className="text-zabit-primary">anytime, anywhere</span>.
         </h1>
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8 md:mb-12">
-          Averti's platform brings together individuals, AI agents, staff and family to achieve{' '}
-          <span className="font-semibold border-b-2 border-zabit-primary">enduring lifestyle changes</span>{' '}
-          and{' '}
-          <span className="font-semibold border-b-2 border-zabit-primary">care plan adherence</span>.
+          Our platform provides trusted support for{" "}
+          <span className="font-semibold border-b-2 border-zabit-primary">
+            health
+          </span>
+          ,{" "}
+          <span className="font-semibold border-b-2 border-zabit-primary">
+            finance
+          </span>
+          ,{" "}
+          <span className="font-semibold border-b-2 border-zabit-primary">
+            suicide prevention
+          </span>
+          , and{" "}
+          <span className="font-semibold border-b-2 border-zabit-primary">
+            danger situations
+          </span>
+          . Access guidance and immediate help whenever you need it most.
         </p>
       </div>
 
@@ -68,13 +82,15 @@ export default function HeroSection() {
             height={120}
             className="rounded-full border-4 shadow-lg bg-pink-500"
           />
-          <p className="mt-2 text-sm font-medium text-zabit-dark text-center">Patient</p>
+          <p className="mt-2 text-sm font-medium text-zabit-dark text-center">
+            Patient
+          </p>
         </div>
 
         {avatars.map((avatar, index) => {
-          const angle = avatarAngles[index]
-          const x = (radius * 0.75) * Math.cos((angle * Math.PI) / 180) // Reduced radius for mobile
-          const y = (radius * 0.75) * Math.sin((angle * Math.PI) / 180) // Reduced radius for mobile
+          const angle = avatarAngles[index];
+          const x = radius * 0.75 * Math.cos((angle * Math.PI) / 180); // Reduced radius for mobile
+          const y = radius * 0.75 * Math.sin((angle * Math.PI) / 180); // Reduced radius for mobile
 
           return (
             <div
@@ -83,11 +99,13 @@ export default function HeroSection() {
               style={{
                 top: `calc(50% + ${y}px)`,
                 left: `calc(50% + ${x}px)`,
-                transform: 'translate(-50%, -50%)'
+                transform: "translate(-50%, -50%)",
               }}
             >
               <div className="text-center">
-                <div className={`w-16 h-16 md:w-24 md:h-24 ${avatar.bgColor} rounded-full shadow-md flex items-center justify-center overflow-hidden`}>
+                <div
+                  className={`w-16 h-16 md:w-24 md:h-24 ${avatar.bgColor} rounded-full shadow-md flex items-center justify-center overflow-hidden`}
+                >
                   {avatar.image ? (
                     <Image
                       src={avatar.image}
@@ -98,7 +116,7 @@ export default function HeroSection() {
                     />
                   ) : (
                     <Image
-                      src={avatar.icon || ''}
+                      src={avatar.icon || ""}
                       alt={avatar.label}
                       width={32}
                       height={32}
@@ -106,17 +124,21 @@ export default function HeroSection() {
                     />
                   )}
                 </div>
-                <p className="mt-2 text-xs md:text-sm font-medium text-zabit-dark">{avatar.label}</p>
+                <p className="mt-2 text-xs md:text-sm font-medium text-zabit-dark">
+                  {avatar.label}
+                </p>
               </div>
             </div>
-          )
+          );
         })}
 
         {/* Moving message with pause on each avatar */}
         {(() => {
-          const angleForMessage = avatarAngles[currentIndex]
-          const xMessage = (radius * 0.75) * Math.cos((angleForMessage * Math.PI) / 180)
-          const yMessage = (radius * 0.75) * Math.sin((angleForMessage * Math.PI) / 180)
+          const angleForMessage = avatarAngles[currentIndex];
+          const xMessage =
+            radius * 0.75 * Math.cos((angleForMessage * Math.PI) / 180);
+          const yMessage =
+            radius * 0.75 * Math.sin((angleForMessage * Math.PI) / 180);
 
           return (
             <motion.div
@@ -126,17 +148,17 @@ export default function HeroSection() {
               transition={{ duration: 0.5 }}
               className="absolute px-3 py-1 md:px-4 md:py-2 rounded-full text-white text-xs md:text-sm font-medium shadow-md"
               style={{
-                backgroundColor: '#a855f7',
+                backgroundColor: "#a855f7",
                 top: `calc(50% + ${yMessage}px)`,
                 left: `calc(50% + ${xMessage}px)`,
-                transform: 'translate(-50%, -120%)'
+                transform: "translate(-50%, -120%)",
               }}
             >
               {avatars[currentIndex]?.message}
             </motion.div>
-          )
+          );
         })()}
       </div>
     </section>
-  )
+  );
 }
