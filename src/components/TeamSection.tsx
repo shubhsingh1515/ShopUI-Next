@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import profile from "../image/demitrius.jpeg";
 
 const teamMembers = [
   {
     name: "Dimetrius Felder",
     role: "Founder and CEO",
     credentials: "Averti Systems",
-    image: "",
+    image: profile,
     color: "text-zabit-primary",
   },
   // {

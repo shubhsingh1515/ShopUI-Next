@@ -299,7 +299,7 @@ export default function HelplineAssistant(): JSX.Element {
   }, []);
 
   return (
-    <section className="bg-gray-200 py-20 rounded-xl ml-10 mr-10 mt-[-80px]">
+    <section className="bg-gray-200 py-20 rounded-xl ml-4 mr-4 mt-40 md:ml-10 md:mr-10 md:mt-[-80px]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left Content */}
